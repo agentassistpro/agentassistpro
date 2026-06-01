@@ -363,7 +363,7 @@
 <!-- Alex Bubble -->
 <div id="alex-bubble">
   <div id="alex-badge">1</div>
-  <button id="alex-btn" onclick="toggleAlex()">⚡</button>
+  <button id="alex-btn">⚡</button>
 </div>
 
 <!-- Alex Window -->
@@ -374,7 +374,7 @@
       <div id="alex-name">Alex — Agent Assist Pro</div>
       <div id="alex-status">Online now</div>
     </div>
-    <button id="alex-close" onclick="toggleAlex()">✕</button>
+    <button id="alex-close">✕</button>
   </div>
   <div id="alex-messages"></div>
   <div id="alex-input-area">
@@ -606,6 +606,14 @@ setTimeout(function(){
     document.getElementById('alex-badge').style.display='flex';
   }
 },5000);
+
+// Attach event listeners after DOM ready
+document.addEventListener('DOMContentLoaded',function(){
+  var btn=document.getElementById('alex-btn');
+  var close=document.getElementById('alex-close');
+  if(btn)btn.addEventListener('click',function(){toggleAlex();});
+  if(close)close.addEventListener('click',function(){toggleAlex();});
+});
 </script>
 <!-- END ALEX WIDGET -->
 
