@@ -313,16 +313,85 @@
 <div class="divider"></div>
 
 <!-- CTA -->
-<section class="cta-section">
+<section class="cta-section" id="contact">
   <div class="section-badge">GET STARTED TODAY</div>
-  <h2>Ready to transform your <span style="color:var(--amber)">call centre?</span></h2>
-  <p>Join the waitlist for our pilot programme. First 5 suppliers get 3 months free and dedicated onboarding support.</p>
-  <div class="cta-form">
-    <input type="email" placeholder="your@email.com">
-    <button>⚡ Join the Pilot →</button>
+  <h2>Book Your <span style="color:var(--amber)">Free 30-Day Pilot</span></h2>
+  <p style="color:#f59e0b;margin-bottom:28px">No credit card · No IT required · Up to 50 agents · Cancel anytime</p>
+
+  <div id="contact-form" style="max-width:500px;margin:0 auto;text-align:left">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+      <div>
+        <label style="font-size:11px;color:#f59e0b;letter-spacing:1px;font-family:monospace;display:block;margin-bottom:6px">FULL NAME *</label>
+        <input id="cf-name" type="text" placeholder="Andrew Littler" style="width:100%;background:#1e293b;border:1px solid #334155;border-radius:8px;padding:12px 14px;color:#f1f5f9;font-size:14px;font-family:Georgia,serif;outline:none;box-sizing:border-box">
+      </div>
+      <div>
+        <label style="font-size:11px;color:#f59e0b;letter-spacing:1px;font-family:monospace;display:block;margin-bottom:6px">COMPANY *</label>
+        <input id="cf-company" type="text" placeholder="Your Company" style="width:100%;background:#1e293b;border:1px solid #334155;border-radius:8px;padding:12px 14px;color:#f1f5f9;font-size:14px;font-family:Georgia,serif;outline:none;box-sizing:border-box">
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+      <div>
+        <label style="font-size:11px;color:#f59e0b;letter-spacing:1px;font-family:monospace;display:block;margin-bottom:6px">EMAIL ADDRESS *</label>
+        <input id="cf-email" type="email" placeholder="you@company.com" style="width:100%;background:#1e293b;border:1px solid #334155;border-radius:8px;padding:12px 14px;color:#f1f5f9;font-size:14px;font-family:Georgia,serif;outline:none;box-sizing:border-box">
+      </div>
+      <div>
+        <label style="font-size:11px;color:#f59e0b;letter-spacing:1px;font-family:monospace;display:block;margin-bottom:6px">PHONE NUMBER</label>
+        <input id="cf-phone" type="tel" placeholder="07700 000000" style="width:100%;background:#1e293b;border:1px solid #334155;border-radius:8px;padding:12px 14px;color:#f1f5f9;font-size:14px;font-family:Georgia,serif;outline:none;box-sizing:border-box">
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px">
+      <div>
+        <label style="font-size:11px;color:#f59e0b;letter-spacing:1px;font-family:monospace;display:block;margin-bottom:6px">YOUR SECTOR</label>
+        <select id="cf-sector" style="width:100%;background:#1e293b;border:1px solid #334155;border-radius:8px;padding:12px 14px;color:#f1f5f9;font-size:14px;font-family:Georgia,serif;outline:none;box-sizing:border-box;-webkit-appearance:none">
+          <option value="">Select sector...</option>
+          <option>Energy & Gas</option>
+          <option>Telecoms</option>
+          <option>Insurance</option>
+          <option>Estate Agency</option>
+          <option>Retail Banking</option>
+          <option>Life Insurance</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div>
+        <label style="font-size:11px;color:#f59e0b;letter-spacing:1px;font-family:monospace;display:block;margin-bottom:6px">NUMBER OF AGENTS</label>
+        <select id="cf-agents" style="width:100%;background:#1e293b;border:1px solid #334155;border-radius:8px;padding:12px 14px;color:#f1f5f9;font-size:14px;font-family:Georgia,serif;outline:none;box-sizing:border-box;-webkit-appearance:none">
+          <option value="">Select size...</option>
+          <option>1–25 agents</option>
+          <option>26–50 agents</option>
+          <option>51–100 agents</option>
+          <option>101–200 agents</option>
+          <option>200+ agents</option>
+        </select>
+      </div>
+    </div>
+    <button onclick="submitContactForm()" style="width:100%;background:linear-gradient(90deg,#f59e0b,#ef4444);color:#0f172a;border:none;border-radius:10px;padding:16px;font-size:16px;font-weight:900;cursor:pointer;font-family:Georgia,serif;letter-spacing:0.5px">⚡ Book My Free 30-Day Pilot →</button>
+    <p style="text-align:center;color:#475569;font-size:12px;margin-top:12px">We will call you back within 24 hours · No commitment required</p>
   </div>
-  <p style="margin-top:16px;font-size:12px;color:var(--gray)">No credit card required · 30-day free trial · Cancel anytime</p>
+
+  <div id="contact-thanks" style="display:none;max-width:500px;margin:0 auto;background:#1e293b;border:1px solid #22c55e44;border-radius:16px;padding:32px;text-align:center">
+    <div style="font-size:48px;margin-bottom:16px">✅</div>
+    <h3 style="color:#22c55e;font-size:22px;margin-bottom:12px">Thank You!</h3>
+    <p style="color:#f59e0b;font-size:15px;margin-bottom:8px">Your pilot request has been received.</p>
+    <p style="color:#94a3b8;font-size:14px">Andrew will call you back within 24 hours to get you set up. Welcome to Agent Assist Pro!</p>
+  </div>
 </section>
+
+<script>
+function submitContactForm(){
+  var name=document.getElementById('cf-name').value;
+  var company=document.getElementById('cf-company').value;
+  var email=document.getElementById('cf-email').value;
+  var phone=document.getElementById('cf-phone').value;
+  var sector=document.getElementById('cf-sector').value;
+  var agents=document.getElementById('cf-agents').value;
+  if(!name||!company||!email){alert('Please fill in your name, company and email address.');return;}
+  var lead={name:name,company:company,email:email,phone:phone,sector:sector,agents:agents,timestamp:new Date().toISOString(),source:'Landing Page Contact Form'};
+  try{var leads=JSON.parse(localStorage.getItem('aap_leads')||'[]');leads.push(lead);localStorage.setItem('aap_leads',JSON.stringify(leads));}catch(e){}
+  document.getElementById('contact-form').style.display='none';
+  document.getElementById('contact-thanks').style.display='block';
+}
+</script>
 
 <!-- FOOTER -->
 <footer>
@@ -337,11 +406,6 @@
 
 
 
-<!-- ALEX BUTTON -->
-<div style="position:fixed;bottom:24px;right:16px;z-index:9999;text-align:center">
-  <a href="https://agentassistpro.github.io/agentassistpro/alex.html" target="_blank" style="display:block;background:linear-gradient(135deg,#f59e0b,#ef4444);color:#0f172a;text-decoration:none;border-radius:50px;padding:16px 22px;font-family:Georgia,serif;font-weight:900;font-size:15px;box-shadow:0 4px 24px rgba(245,158,11,0.5)">⚡ Chat with Alex</a>
-  <div style="color:#22c55e;font-size:11px;margin-top:6px;font-family:monospace">● Online now</div>
-</div>
-<!-- END ALEX BUTTON -->
+
 </body>
 </html>
