@@ -332,165 +332,18 @@
 </footer>
 
 
-<!-- ALEX AI CHAT WIDGET -->
-<style>
-#abtn{position:fixed;bottom:24px;right:24px;z-index:99999;width:64px;height:64px;background:linear-gradient(135deg,#f59e0b,#ef4444);border-radius:50%;border:none;cursor:pointer;font-size:28px;box-shadow:0 4px 24px rgba(245,158,11,0.5);-webkit-tap-highlight-color:transparent}
-#abadge{position:absolute;top:-4px;right:-4px;background:#22c55e;color:white;border-radius:50%;width:20px;height:20px;font-size:11px;display:none;align-items:center;justify-content:center;font-weight:bold;pointer-events:none}
-#awin{position:fixed;bottom:100px;right:16px;left:16px;height:480px;background:#0f172a;border:1px solid #334155;border-radius:16px;z-index:99999;box-shadow:0 20px 60px rgba(0,0,0,0.6);font-family:Georgia,serif;flex-direction:column;display:none;overflow:hidden}
-#awin.open{display:flex}
-#ahead{background:#1e293b;border-bottom:1px solid #334155;padding:12px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0}
-#aavatar{width:36px;height:36px;background:linear-gradient(135deg,#f59e0b,#ef4444);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
-#aname{font-size:14px;font-weight:900;color:#f1f5f9;flex:1}
-#astatus{font-size:11px;color:#22c55e}
-#aclose{background:transparent;border:none;color:#94a3b8;font-size:20px;cursor:pointer;padding:4px 8px;-webkit-tap-highlight-color:transparent}
-#amsgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
-.am{max-width:82%;font-size:13px;line-height:1.6;padding:10px 13px;border-radius:12px;word-wrap:break-word;white-space:pre-wrap}
-.am.b{background:#1e293b;border:1px solid #334155;color:#f1f5f9;align-self:flex-start;border-radius:4px 12px 12px 12px}
-.am.u{background:linear-gradient(135deg,#1d4ed8,#7c3aed);color:#fff;align-self:flex-end;border-radius:12px 4px 12px 12px}
-#ainp{border-top:1px solid #1e293b;padding:10px;display:flex;gap:8px;flex-shrink:0;background:#0f172a}
-#atxt{flex:1;background:#1e293b;border:1px solid #334155;border-radius:8px;padding:10px 12px;color:#f1f5f9;font-size:13px;font-family:Georgia,serif;outline:none;-webkit-appearance:none}
-#asnd{background:linear-gradient(90deg,#f59e0b,#ef4444);color:#0f172a;border:none;border-radius:8px;padding:10px 14px;font-weight:900;font-size:13px;cursor:pointer;font-family:Georgia,serif;-webkit-tap-highlight-color:transparent}
-#aform{background:#1e293b;border:1px solid #f59e0b44;margin:8px;border-radius:10px;padding:12px;flex-shrink:0}
-#aform .ft{font-size:10px;color:#f59e0b;letter-spacing:2px;font-family:monospace;margin-bottom:8px;font-weight:bold}
-#aform input{width:100%;background:#0f172a;border:1px solid #334155;border-radius:6px;padding:8px 10px;color:#f1f5f9;font-size:12px;font-family:Georgia,serif;margin-bottom:6px;box-sizing:border-box;outline:none;-webkit-appearance:none}
-#aform button{width:100%;background:linear-gradient(90deg,#f59e0b,#ef4444);color:#0f172a;border:none;border-radius:6px;padding:10px;font-weight:900;font-size:13px;cursor:pointer;font-family:Georgia,serif}
-</style>
 
-<button id="abtn" onclick="atoggle()">⚡<span id="abadge">1</span></button>
 
-<div id="awin">
-  <div id="ahead">
-    <div id="aavatar">⚡</div>
-    <div style="flex:1"><div id="aname">Alex — Agent Assist Pro</div><div id="astatus">● Online</div></div>
-    <button id="aclose" onclick="atoggle()">✕</button>
-  </div>
-  <div id="amsgs"></div>
-  <div id="ainp">
-    <input id="atxt" placeholder="Type your message..." />
-    <button id="asnd" onclick="asend()">Send</button>
-  </div>
+
+<!-- ALEX CHAT BUTTON -->
+<div style="position:fixed;bottom:24px;right:24px;z-index:9999">
+  <a href="/alex.html" style="display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#f59e0b,#ef4444);color:#0f172a;text-decoration:none;border-radius:50px;padding:14px 20px;font-family:Georgia,serif;font-weight:900;font-size:14px;box-shadow:0 4px 24px rgba(245,158,11,0.5)">
+    <span style="font-size:20px">⚡</span>
+    <span>Chat with Alex</span>
+    <span style="background:#22c55e;color:white;border-radius:50%;width:18px;height:18px;font-size:10px;display:flex;align-items:center;justify-content:center;font-weight:bold">1</span>
+  </a>
 </div>
-
-<script>
-var aOpen=false,aState={},aCollect=false,aDone=false;
-
-var AROI={small:{a:'25',l:'£6,000/yr',s:'£18,000–£35,000',r:'3x–6x',p:'4 months'},medium:{a:'50',l:'£12,000/yr',s:'£35,000–£70,000',r:'3x–6x',p:'4 months'},large:{a:'100–200',l:'£21,000–£36,000/yr',s:'£70,000–£280,000',r:'4x–8x',p:'3 months'},enterprise:{a:'200+',l:'POA',s:'£300,000+',r:'7x–10x',p:'under 2 months'}};
-
-var AEDITIONS={'energy':'our Energy & Gas Edition','gas':'our Energy & Gas Edition','telecoms':'our Telecoms B2B Edition','telecom':'our Telecoms B2B Edition','insurance':'our Insurance Edition','estate':'our Estate Agency Edition','property':'our Estate Agency Edition','banking':'our Banking Edition','bank':'our Banking Edition','life':'our Life Insurance Edition'};
-
-var AOBJECTIONS={'scripts':'Training tells agents what to do. Agent Assist Pro shows them exactly what to say — on a live call, with this customer, right now.','budget':'This is not a cost — it is a saving. The licence pays for itself within the first quarter.','it':'Zero IT involvement. Browser-based. Your agents open a web browser and they are live. No installation whatsoever.','build':'Typically takes 6–12 months and £80,000–£150,000 to build. Agent Assist Pro is available today.','evidence':'That is why we offer a free 30-day pilot. You choose the agents, measure the results yourself. Nothing to lose.','expensive':'Based on your team size the projected saving significantly exceeds the licence cost. ROI is typically 3x–8x.'};
-
-function adetectSector(t){var s=['energy','gas','telecoms','telecom','insurance','estate','property','banking','bank','life insurance','life'];t=t.toLowerCase();for(var i=0;i<s.length;i++){if(t.indexOf(s[i])>=0)return s[i];}return null;}
-
-function adetectSize(t){var n=t.match(/[0-9]+/);if(n){var v=parseInt(n[0]);if(v<=25)return'small';if(v<=100)return'medium';if(v<=200)return'large';return'enterprise';}t=t.toLowerCase();if(t.indexOf('small')>=0)return'small';if(t.indexOf('medium')>=0)return'medium';if(t.indexOf('large')>=0||t.indexOf('enterprise')>=0)return'enterprise';return null;}
-
-function adetectObj(t){t=t.toLowerCase();if(t.indexOf('already have')>=0||t.indexOf('trained')>=0||t.indexOf('have scripts')>=0)return'scripts';if(t.indexOf('budget')>=0||t.indexOf('afford')>=0||t.indexOf('expensive')>=0||t.indexOf('cost')>=0||t.indexOf('how much')>=0)return'budget';if(t.indexOf('it ')>=0||t.indexOf('install')>=0||t.indexOf('integrat')>=0)return'it';if(t.indexOf('build')>=0&&t.indexOf('ourselves')>=0)return'build';if(t.indexOf('evidence')>=0||t.indexOf('proof')>=0||t.indexOf('results')>=0)return'evidence';return null;}
-
-function aget(t){
-  var sector=adetectSector(t),size=adetectSize(t),obj=adetectObj(t),tl=t.toLowerCase();
-  if(sector&&!aState.sector){aState.sector=sector;var ed=AEDITIONS[sector]||'a sector-specific edition';if(!aState.size)return'We have '+ed+' specifically — one of six sector editions in the platform.
-
-How many agents do you have in your call centre?';}
-  if(size&&!aState.size){aState.size=size;var r=AROI[size];var ed2=aState.sector?(AEDITIONS[aState.sector]||'our sector edition'):'the relevant sector edition';if(!aState.pitched){aState.pitched=true;return'Based on a team of '+r.a+' agents, here is what Agent Assist Pro delivers:
-
-• Annual licence: '+r.l+'
-• Projected annual saving: '+r.s+'
-• ROI: '+r.r+'
-• Payback period: '+r.p+'
-
-You would have access to '+ed2+' — 432 professional scripts, mood-adaptive, zero IT required.
-
-Would a 20-minute demonstration be worth your time?';}}
-  if(obj)return AOBJECTIONS[obj];
-  if((tl.indexOf('yes')>=0||tl.indexOf('interested')>=0||tl.indexOf('demo')>=0||tl.indexOf('sounds good')>=0)&&!aState.asked){aState.asked=true;return'I would like to arrange a 20-minute demonstration for you — no commitment required.
-
-Could I take your contact details so we can schedule a time?';}
-  if(tl.indexOf('hello')>=0||tl.indexOf('hi')>=0)return'Good day. What sector does your call centre operate in?';
-  if(aState.sector&&!aState.size)return'How many agents do you have in your call centre?';
-  if(aState.size&&!aState.sector)return'Which sector — energy, telecoms, insurance, banking, estate agency, or life insurance?';
-  if(aState.pitched&&!aState.asked){aState.asked=true;return'I would like to arrange a demonstration for you. Could I take your contact details?';}
-  if(!aState.sector)return'What sector does your call centre operate in?';
-  if(!aState.size)return'How many agents do you have in your team?';
-  return'What is your biggest call centre challenge right now — difficult calls, costs, or retention?';
-}
-
-function atoggle(){
-  aOpen=!aOpen;
-  var w=document.getElementById('awin');
-  var b=document.getElementById('abadge');
-  if(aOpen){
-    w.className='open';
-    if(b)b.style.display='none';
-    var m=document.getElementById('amsgs');
-    if(m&&m.children.length===0){
-      setTimeout(function(){
-        aaddmsg('Good day. I am Alex from Agent Assist Pro.
-
-We have built an AI Script Generation Engine — the first platform purpose-built to give call centre agents the exact right words, for the exact right customer, in the exact right moment.
-
-What sector does your call centre operate in?','b');
-      },400);
-    }
-    var inp=document.getElementById('atxt');
-    if(inp)setTimeout(function(){inp.focus();},500);
-  } else {
-    w.className='';
-  }
-}
-
-function aaddmsg(text,type){
-  var m=document.getElementById('amsgs');
-  if(!m)return;
-  var d=document.createElement('div');
-  d.className='am '+type;
-  d.textContent=text;
-  m.appendChild(d);
-  m.scrollTop=m.scrollHeight;
-}
-
-function ashowform(){
-  var inp=document.getElementById('ainp');
-  if(inp)inp.style.display='none';
-  var m=document.getElementById('amsgs');
-  var f=document.createElement('div');
-  f.id='aform';
-  f.innerHTML='<div class="ft">YOUR DETAILS</div><input id="af1" placeholder="Full name *"/><input id="af2" placeholder="Company name"/><input id="af3" placeholder="Email address *"/><input id="af4" placeholder="Phone number"/><input id="af5" placeholder="Best time to call"/><button onclick="asubmit()">Submit Details →</button>';
-  if(m)m.appendChild(f);
-  m.scrollTop=m.scrollHeight;
-}
-
-function asubmit(){
-  var n=document.getElementById('af1'),e=document.getElementById('af3');
-  if(!n||!n.value||!e||!e.value){alert('Please enter your name and email.');return;}
-  var lead={name:n.value,company:(document.getElementById('af2')||{}).value||'',email:e.value,phone:(document.getElementById('af4')||{}).value||'',time:(document.getElementById('af5')||{}).value||'',sector:aState.sector||'',timestamp:new Date().toISOString()};
-  try{var l=JSON.parse(localStorage.getItem('aap_leads')||'[]');l.push(lead);localStorage.setItem('aap_leads',JSON.stringify(l));}catch(ex){}
-  var f=document.getElementById('aform');if(f)f.remove();
-  aDone=true;
-  aaddmsg('Thank you '+n.value+'. Your details have been passed to our team. You can expect a call'+(lead.time?' '+lead.time:' within 24 hours')+' to arrange your demonstration.','b');
-}
-
-function asend(){
-  if(aDone)return;
-  var inp=document.getElementById('atxt');
-  if(!inp||!inp.value.trim())return;
-  var txt=inp.value.trim();
-  inp.value='';
-  aaddmsg(txt,'u');
-  var snd=document.getElementById('asnd');
-  if(snd)snd.disabled=true;
-  setTimeout(function(){
-    var resp=aget(txt);
-    aaddmsg(resp,'b');
-    if(aState.asked&&!aCollect&&!aDone){aCollect=true;setTimeout(ashowform,400);}
-    if(snd)snd.disabled=false;
-  },700);
-}
-
-document.getElementById('atxt').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();asend();}});
-
-setTimeout(function(){var b=document.getElementById('abadge');if(b&&!aOpen){b.style.display='flex';}},5000);
-</script>
-<!-- END ALEX WIDGET -->
+<!-- END ALEX BUTTON -->
 
 </body>
 </html>
