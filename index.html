@@ -368,7 +368,7 @@
 <!-- Alex Bubble -->
 <div id="alex-bubble">
   <div id="alex-badge">1</div>
-  <button id="alex-btn">⚡</button>
+  <button id="alex-btn" onclick="toggleAlex()">⚡</button>
 </div>
 
 <!-- Alex Window -->
@@ -614,10 +614,12 @@ setTimeout(function(){
 
 // Attach event listeners after DOM ready
 document.addEventListener('DOMContentLoaded',function(){
-  var btn=document.getElementById('alex-btn');
-  var close=document.getElementById('alex-close');
-  if(btn)btn.addEventListener('click',function(){toggleAlex();});
-  if(close)close.addEventListener('click',function(){toggleAlex();});
+  document.addEventListener('DOMContentLoaded',function(){
+    var btn=document.getElementById('alex-btn');
+    var close=document.getElementById('alex-close');
+    if(btn)btn.addEventListener('click',function(){toggleAlex();});
+    if(close)close.addEventListener('click',function(){toggleAlex();});
+  });
 });
 </script>
 <!-- END ALEX WIDGET -->
